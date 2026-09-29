@@ -6,7 +6,7 @@ import { useGsap } from "@/lib/useGsap";
 export const Arch = () => (
   <svg
     aria-hidden
-    className="pointer-events-none absolute inset-x-0 top-0 z-0 h-6 w-full text-red/25"
+    className="pointer-events-none absolute inset-x-0 top-0 z-0 h-6 w-full text-red/25 my-4"
   >
     <defs>
       <pattern id="arch" width="48" height="24" patternUnits="userSpaceOnUse">
@@ -61,7 +61,7 @@ export function Sec({
             loading="lazy"
           />
           <div
-            className={`absolute inset-0 ${dark ? "bg-ink/60 backdrop-blur-[3px]" : "bg-gradient-to-b from-mist/70 via-mist/30 to-mist/70 backdrop-blur-[3px]"}`}
+            className={`absolute inset-0 ${dark ? "bg-ink/40 backdrop-blur-[3px]" : "bg-gradient-to-b from-mist/50 via-mist/10 to-mist/50 backdrop-blur-[3px]"}`}
           />
         </div>
       )}

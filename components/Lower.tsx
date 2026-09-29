@@ -40,7 +40,7 @@ export function Speakers() {
       opacity: 0,
       stagger: 0.1,
       duration: 1,
-      scrollTrigger: { trigger: r.current, start: "top 70%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 65%", toggleActions: "play none none reverse" },
     });
   });
   return (
@@ -185,7 +185,7 @@ export function Sponsors() {
       stagger: 0.1,
       duration: 1,
       ease: "expo.out",
-      scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
     });
   });
   return (
@@ -224,7 +224,7 @@ export function Faq() {
         opacity: 0,
         duration: 0.9,
         ease: "expo.out",
-        scrollTrigger: { trigger: e, start: "top 92%", once: true },
+        scrollTrigger: { trigger: e, start: "top 88%", toggleActions: "play none none reverse" },
       }),
     );
   });

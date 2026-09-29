@@ -44,7 +44,7 @@ export function Stats() {
       stagger: 0.12,
       duration: 0.9,
       ease: "expo.out",
-      scrollTrigger: { trigger: r.current, start: "top 92%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 85%", toggleActions: "play none none reverse" },
     });
     count(r.current!);
   });
@@ -113,7 +113,7 @@ export function About() {
       stagger: 0.15,
       duration: 1,
       ease: "expo.out",
-      scrollTrigger: { trigger: ".abc", start: "top 90%", once: true },
+      scrollTrigger: { trigger: ".abc", start: "top 85%", toggleActions: "play none none reverse" },
     });
   });
   return (
@@ -176,7 +176,7 @@ export function Impact() {
       stagger: 0.1,
       duration: 0.9,
       ease: "power3.out",
-      scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
     });
     count(r.current!);
   });
@@ -217,7 +217,7 @@ export function Expect() {
       stagger: 0.1,
       duration: 0.9,
       ease: "power3.out",
-      scrollTrigger: { trigger: r.current, start: "top 78%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 73%", toggleActions: "play none none reverse" },
     });
   });
   const X: [typeof Flag, string, string][] = [
@@ -260,7 +260,7 @@ export function Format() {
       opacity: 0,
       duration: 1.1,
       ease: "expo.out",
-      scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
     });
     gsap.utils
       .toArray<HTMLElement>(".fi")
@@ -271,7 +271,7 @@ export function Format() {
           duration: 1,
           delay: i * 0.05,
           ease: "expo.out",
-          scrollTrigger: { trigger: e, start: "top 90%", once: true },
+          scrollTrigger: { trigger: e, start: "top 85%", toggleActions: "play none none reverse" },
         }),
       );
   });
@@ -328,7 +328,7 @@ export function Agenda() {
         x: i % 2 ? 70 : -70,
         duration: 1,
         ease: "expo.out",
-        scrollTrigger: { trigger: e, start: "top 92%", once: true },
+        scrollTrigger: { trigger: e, start: "top 88%", toggleActions: "play none none reverse" },
       });
     });
     b[0]?.classList.add("lit");
@@ -377,7 +377,7 @@ export function Audience() {
       stagger: 0.1,
       duration: 1,
       ease: "expo.out",
-      scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
     });
   });
   return (

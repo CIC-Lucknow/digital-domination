@@ -79,6 +79,10 @@ export default function Hero() {
     const go = () => {
       intro.play();
     };
+
+    // Immediately trigger intro on mount
+    go();
+
     if ((window as any).__ddReady) go();
     else addEventListener("dd:ready", go, { once: true });
     const F = (

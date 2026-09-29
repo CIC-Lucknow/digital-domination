@@ -175,7 +175,7 @@ export function Countdown() {
       stagger: 0.12,
       duration: 0.9,
       ease: "power3.out",
-      scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
     });
   });
   return (
