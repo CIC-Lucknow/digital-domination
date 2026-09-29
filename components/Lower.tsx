@@ -66,9 +66,9 @@ export function Speakers() {
           {SPEAKERS.map((role, i) => (
             <article
               key={i}
-              className="hud spc flex h-[46vh] w-[min(88vw,36rem)] overflow-hidden"
+              className="hud spc flex h-auto md:h-[46vh] w-[min(88vw,36rem)] flex-col md:flex-row overflow-hidden"
             >
-              <div className="w-2/5 shrink-0 bg-ink">
+              <div className="w-full md:w-2/5 shrink-0 bg-ink aspect-[3/4] md:aspect-auto order-1 md:order-1">
                 <img
                   src={A.person}
                   alt="Speaker to be announced"
@@ -76,7 +76,7 @@ export function Speakers() {
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="flex flex-1 flex-col justify-center p-6 md:p-8">
+              <div className="flex flex-1 flex-col justify-center p-6 md:p-8 order-2 md:order-2">
                 <p className="eyebrow">{role}</p>
                 <h3 className="mt-2 text-3xl md:text-4xl">Speaker Name</h3>
                 <p className="mt-1 text-sm font-medium">
