@@ -33,6 +33,14 @@ export function Marquee() {
       ),
     );
 
+    gsap.from(r.current, {
+      opacity: 0,
+      y: 40,
+      duration: 1,
+      ease: "expo.out",
+      scrollTrigger: { trigger: r.current, start: "top 95%", once: true },
+    });
+
     let k: gsap.core.Timeline | undefined;
 
     const trigger = ScrollTrigger.create({
@@ -88,7 +96,7 @@ export function Marquee() {
     <section
       ref={r}
       aria-hidden
-      className="overflow-hidden border-y border-white/60 bg-white/50 py-8 backdrop-blur-xl"
+      className="overflow-hidden border-y border-white/60 bg-white/50 py-5 backdrop-blur-xl"
     >
       {row(false)}
       {row(true)}
@@ -157,19 +165,30 @@ function Clock({ t }: { t: number }) {
 }
 
 export function Countdown() {
+  const r = useRef<HTMLDivElement>(null);
+  useGsap(r, () => {
+    gsap.from(".cd", {
+      y: 50,
+      opacity: 0,
+      scale: 0.96,
+      force3D: true,
+      stagger: 0.12,
+      duration: 0.9,
+      ease: "power3.out",
+      scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
+    });
+  });
   return (
     <Sec id="countdown" bg={A.bgCount} dark>
-      <div className="mx-auto max-w-6xl px-5 py-24 text-white">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 text-white md:py-16">
         <Head dark n="03" e="Countdown">
           Two dates. One mission.
         </Head>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {EV.map(([a, b, t]) => (
-            <div
-              key={a}
-              className="hud glass-dark p-8"
-            >
+            <div key={a} className="cd">
+            <div className="hud glass-dark h-full p-8">
               <p className="eyebrow">{a}</p>
 
               <h3 className="mt-2 text-3xl text-white">
@@ -177,6 +196,7 @@ export function Countdown() {
               </h3>
 
               <Clock t={t} />
+            </div>
             </div>
           ))}
         </div>

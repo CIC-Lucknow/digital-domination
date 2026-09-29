@@ -12,7 +12,6 @@ import {
 import {
   Speakers,
   Ctf,
-  Venue,
   Sponsors,
   Faq,
   Footer,
@@ -34,7 +33,6 @@ export default function Page() {
       <Audience />
       <Ctf />
       <Legacy />
-      <Venue />
       <Sponsors />
       <Faq />
       <Footer />

@@ -8,6 +8,9 @@ import {
   Linkedin,
   Globe,
   Users,
+  Calendar,
+  MapPin,
+  ArrowUp,
 } from "lucide-react";
 import { useGsap } from "@/lib/useGsap";
 import { A } from "@/lib/assets";
@@ -113,10 +116,17 @@ export function Ctf() {
       ease: "back.out(2)",
       scrollTrigger: { trigger: ".cat", start: "top 90%", once: true },
     });
+    gsap.from(".ctf-img", {
+      y: 70,
+      opacity: 0,
+      duration: 1,
+      ease: "expo.out",
+      scrollTrigger: { trigger: ".ctf-img", start: "top 90%", once: true },
+    });
   });
   return (
     <Sec id="ctf" bg={A.bgCtf}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="09" e="Capture the flag">
           Online CTF
         </Head>
@@ -139,6 +149,7 @@ export function Ctf() {
             </div>
             <Terminal />
           </div>
+          <div className="ctf-img">
           <div className="hud relative aspect-[4/5] overflow-hidden bg-ink">
             <img
               src={A.hacker}
@@ -148,7 +159,7 @@ export function Ctf() {
             />
             <p
               className="glitch absolute left-6 top-6 font-head text-5xl font-bold leading-tight text-white"
-              data-t="THINK HACK LEARN DOMINATE"
+              data-t={"THINK\nHACK\nLEARN\nDOMINATE"}
             >
               THINK
               <br />
@@ -159,45 +170,7 @@ export function Ctf() {
               <span className="text-red">DOMINATE</span>
             </p>
           </div>
-        </div>
-      </div>
-    </Sec>
-  );
-}
-export function Venue() {
-  const r = useRef<HTMLDivElement>(null);
-  useGsap(r, () => {
-    gsap.fromTo(
-      ".vn",
-      { clipPath: "inset(18% 22% 18% 22%)" },
-      {
-        clipPath: "inset(0% 0% 0% 0%)",
-        ease: "none",
-        scrollTrigger: {
-          trigger: r.current,
-          start: "top 80%",
-          end: "top 20%",
-          scrub: true,
-        },
-      },
-    );
-  });
-  return (
-    <Sec id="lucknow">
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
-        <p className="eyebrow" data-reveal>
-          The city of Nawabs
-        </p>
-        <h2 data-split className="mt-3 text-6xl uppercase md:text-8xl">
-          Lucknow
-        </h2>
-        <div className="vn mt-8 aspect-[21/9] overflow-hidden">
-          <img
-            src={A.venue}
-            alt="Lucknow heritage skyline"
-            loading="lazy"
-            className="h-full w-full object-cover"
-          />
+          </div>
         </div>
       </div>
     </Sec>
@@ -217,7 +190,7 @@ export function Sponsors() {
   });
   return (
     <Sec id="sponsors" bg={A.bgSponsors}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="11" e="Sponsors & supporters">
           Organizations supporting the experience
         </Head>
@@ -225,12 +198,13 @@ export function Sponsors() {
           {SPONSORS.map((t) => (
             <div
               key={t}
-              className="sp hud flex h-72 flex-col justify-between p-6"
+              className="sp hud group flex h-72 flex-col justify-between p-6"
             >
               <div className="grid flex-1 place-items-center border border-dashed border-black/20 bg-white/40 font-head text-2xl text-black/30 backdrop-blur">
                 LOGO
               </div>
-              <p className="mt-4 w-fit self-center rounded-full bg-red px-5 py-1.5 font-head text-base text-white">
+              <p className="mt-4 inline-flex w-fit items-center gap-2 self-center bg-ink/90 px-5 py-2 font-head text-sm uppercase tracking-[.18em] text-white shadow-[0_10px_24px_-12px_rgba(17,19,21,.7)] backdrop-blur transition-colors duration-300 [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)] group-hover:bg-red">
+                <i className="h-1.5 w-1.5 rotate-45 bg-red transition-colors duration-300 group-hover:bg-white" />
                 {t}
               </p>
             </div>
@@ -242,15 +216,28 @@ export function Sponsors() {
 }
 export function Faq() {
   const [o, s] = useState(0);
+  const r = useRef<HTMLDivElement>(null);
+  useGsap(r, () => {
+    gsap.utils.toArray<HTMLElement>(".fq").forEach((e) =>
+      gsap.from(e, {
+        y: 50,
+        opacity: 0,
+        duration: 0.9,
+        ease: "expo.out",
+        scrollTrigger: { trigger: e, start: "top 92%", once: true },
+      }),
+    );
+  });
   return (
     <Sec id="faq" bg={A.bgFaq}>
-      <div className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="12" e="FAQ">
           Frequently asked questions
         </Head>
         <div className="mt-10 space-y-4">
           {FAQ.map(([q, a], i) => (
-            <div key={q} className="hud w-full">
+            <div key={q} className="fq">
+            <div className="hud w-full">
               <button
                 aria-expanded={o === i}
                 onClick={() => s(o === i ? -1 : i)}
@@ -272,9 +259,11 @@ export function Faq() {
                 </div>
               </div>
             </div>
+            </div>
           ))}
         </div>
-        <div className="hud mt-8 flex flex-wrap items-center justify-between gap-4 p-8">
+        <div className="fq mt-8">
+        <div className="hud flex flex-wrap items-center justify-between gap-4 p-8">
           <div>
             <h3 className="text-3xl">Still have questions?</h3>
             <p className="text-black/65">Reach out to the CIC Lucknow team.</p>
@@ -283,11 +272,23 @@ export function Faq() {
             Contact us <ArrowRight size={16} />
           </a>
         </div>
+        </div>
       </div>
     </Sec>
   );
 }
 export function Footer() {
+  const r = useRef<HTMLElement>(null);
+  useGsap(r, () => {
+    gsap.from(".ft", {
+      y: 40,
+      opacity: 0,
+      stagger: 0.12,
+      duration: 0.9,
+      ease: "power3.out",
+      scrollTrigger: { trigger: r.current, start: "top 92%", once: true },
+    });
+  });
   const L = [
     ["About CIC", "about"],
     ["Schedule", "agenda"],
@@ -305,63 +306,98 @@ export function Footer() {
     [Users, "Commudle", "https://www.commudle.com/communities/cic-lucknow"],
     [Globe, "CIC Lucknow website", "https://ciclucknow.in"],
   ];
+  const E: [typeof Calendar, string][] = [
+    [Calendar, "5 Oct 2026 · Online CTF"],
+    [Calendar, "10 Oct 2026 · Offline Summit"],
+    [MapPin, "Lucknow, Uttar Pradesh"],
+  ];
   return (
-    <footer className="relative isolate mt-10 overflow-hidden border-t border-white/70">
+    <footer
+      ref={r}
+      className="relative isolate overflow-hidden border-t border-white/70"
+    >
       <img
         src={A.bgFooter}
         alt=""
         aria-hidden
         loading="lazy"
-        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-60"
+        className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40"
       />
-      <div className="absolute inset-0 -z-10 bg-white/50 backdrop-blur-2xl" />
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.5fr_1fr_auto]">
-        <div>
-          <p className="eyebrow">Cyber Intelligence Community / Lucknow</p>
-          <p className="mt-3 font-head text-5xl font-bold uppercase leading-[.9] md:text-7xl">
-            Digital <span className="text-red">Domination 2.0</span>
+      <div className="absolute inset-0 -z-10 bg-white/40 backdrop-blur-xl" />
+      <div className="mx-auto max-w-6xl px-5 pb-6 pt-10 md:pt-12">
+        <div className="ft hud grid gap-10 p-7 md:grid-cols-[1.7fr_1fr_1.2fr] md:p-10">
+          <div>
+            <p className="eyebrow">Cyber Intelligence Community / Lucknow</p>
+            <p className="mt-3 font-head text-5xl font-bold uppercase leading-[.9] md:text-6xl">
+              Digital <span className="text-red">Domination 2.0</span>
+            </p>
+            <p className="mt-4 max-w-md text-sm text-black/65">
+              CIC Lucknow's flagship cybersecurity and technology event,
+              bringing together competition, practical learning, industry
+              interaction and community networking.
+            </p>
+            <ul className="mt-5 space-y-2 text-sm">
+              {E.map(([I, t]) => (
+                <li key={t} className="flex items-center gap-2">
+                  <I size={16} className="text-red" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+            <a href="#register" className="btn mt-6 bg-red text-white">
+              Register Now <ArrowRight size={16} />
+            </a>
+          </div>
+          <div>
+            <p className="eyebrow">Explore</p>
+            <ul className="mt-4 space-y-3 text-sm">
+              {L.map(([l, id]) => (
+                <li key={id}>
+                  <a
+                    className="inline-block transition hover:translate-x-1 hover:text-red"
+                    href={`#${id}`}
+                  >
+                    <span className="mr-2 text-red">//</span>
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <p className="eyebrow">Connect</p>
+            <ul className="mt-4 space-y-3 text-sm">
+              {S.map(([I, l, h]) => (
+                <li key={l}>
+                  <a
+                    href={h}
+                    target="_blank"
+                    rel="noopener"
+                    className="group inline-flex items-center gap-3 transition hover:text-red"
+                  >
+                    <span className="grid h-10 w-10 place-items-center border border-white/80 bg-white/50 backdrop-blur transition group-hover:bg-red group-hover:text-white">
+                      <I size={18} />
+                    </span>
+                    {l}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="ft mt-5 flex flex-wrap items-center justify-between gap-3 text-xs text-black/55">
+          <p>
+            Cyber Intelligence Community Lucknow · Digital Domination 2.0 · ©
+            2026 CIC. All rights reserved.
           </p>
-          <p className="mt-4 max-w-md text-sm text-black/65">
-            CIC Lucknow's flagship cybersecurity and technology event, bringing
-            together competition, practical learning, industry interaction and
-            community networking.
-          </p>
-          <a href="#register" className="btn mt-6 bg-red text-white">
-            Register Now <ArrowRight size={16} />
+          <a
+            href="#top"
+            className="inline-flex items-center gap-1.5 transition hover:text-red"
+          >
+            Back to top <ArrowUp size={14} />
           </a>
         </div>
-        <ul className="space-y-3 text-sm">
-          {L.map(([l, id]) => (
-            <li key={id}>
-              <a
-                className="transition hover:translate-x-1 hover:text-red"
-                href={`#${id}`}
-              >
-                <span className="mr-2 text-red">//</span>
-                {l}
-              </a>
-            </li>
-          ))}
-        </ul>
-        <div className="flex gap-3 md:flex-col">
-          {S.map(([I, l, h]) => (
-            <a
-              key={l}
-              href={h}
-              target="_blank"
-              rel="noopener"
-              aria-label={l}
-              className="grid h-11 w-11 place-items-center border border-white/80 bg-white/50 backdrop-blur transition hover:bg-red hover:text-white"
-            >
-              <I size={18} />
-            </a>
-          ))}
-        </div>
       </div>
-      <p className="border-t border-black/10 py-5 text-center text-xs text-black/50">
-        Cyber Intelligence Community Lucknow · Digital Domination 2.0 · © 2026
-        CIC. All rights reserved.
-      </p>
     </footer>
   );
 }

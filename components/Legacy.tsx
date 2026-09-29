@@ -7,6 +7,7 @@ import { A } from "@/lib/assets";
 import { Sec, Head } from "@/components/ui";
 import { DD1, SHOTS } from "@/lib/legacy";
 /* eslint-disable @next/next/no-img-element */
+const EXT = ["png", "webp", "jpg", "jpeg", "avif"];
 const SP = [
   "md:col-span-2 md:row-span-2",
   "",
@@ -19,6 +20,11 @@ const SP = [
 export default function Legacy() {
   const r = useRef<HTMLDivElement>(null);
   const [o, setO] = useState<number | null>(null);
+  const [ei, setEi] = useState<number[]>(() => SHOTS.map(() => 0));
+  const src = (i: number) =>
+    SHOTS[i].src.replace(/\.png$/, "." + EXT[Math.min(ei[i], EXT.length - 1)]);
+  const fail = (i: number) =>
+    setEi((a) => a.map((v, j) => (j === i && v < EXT.length - 1 ? v + 1 : v)));
   useGsap(r, () => {
     gsap.utils.toArray<HTMLElement>(".sh").forEach((e) => {
       gsap.fromTo(
@@ -59,7 +65,7 @@ export default function Legacy() {
   }, []);
   return (
     <Sec id="legacy" bg={A.bgLegacy}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="10" e="Last edition">
           {DD1.title}
         </Head>
@@ -93,9 +99,10 @@ export default function Legacy() {
               className={`sh group relative overflow-hidden border-4 border-white/70 bg-white/40 text-left backdrop-blur ${SP[i]}`}
             >
               <img
-                src={s.src}
+                src={src(i)}
+                onError={() => fail(i)}
                 alt={s.cap}
-                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover"
               />
               <span className="absolute inset-x-0 bottom-0 translate-y-full bg-white/60 p-3 font-head text-lg backdrop-blur-xl transition group-hover:translate-y-0">
@@ -123,7 +130,8 @@ export default function Legacy() {
             className="max-w-4xl border-4 border-white/80 bg-white/60 backdrop-blur"
           >
             <img
-              src={SHOTS[o].src}
+              src={src(o)}
+              onError={() => fail(o)}
               alt={SHOTS[o].cap}
               className="max-h-[78vh] w-full object-contain"
             />

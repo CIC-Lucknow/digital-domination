@@ -1,6 +1,5 @@
 "use client";
 import { useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
 import { ArrowRight } from "lucide-react";
 import { useGsap } from "@/lib/useGsap";
@@ -9,15 +8,20 @@ import { NAV } from "@/lib/content";
 export default function Header() {
   const r = useRef<HTMLElement>(null);
   useGsap(r, () => {
-    ScrollTrigger.create({
-      start: 80,
-      onUpdate: (s) => {
-        gsap.to(r.current, {
-          yPercent: s.direction === 1 ? -110 : 0,
-          duration: 0.4,
-        });
-      },
-    });
+    // entrance only; the navbar stays fixed and visible while scrolling
+    gsap.set(r.current, { yPercent: -100, opacity: 0 });
+    const go = () => {
+      gsap.to(r.current, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 0.9,
+        delay: 0.1,
+        ease: "expo.out",
+      });
+    };
+    if ((window as any).__ddReady) go();
+    else addEventListener("dd:ready", go, { once: true });
+    return () => removeEventListener("dd:ready", go);
   });
   return (
     <header

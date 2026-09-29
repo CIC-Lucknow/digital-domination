@@ -58,7 +58,7 @@ export function Stats() {
   return (
     <section
       ref={r}
-      className="relative z-10 mx-auto mt-20 max-w-6xl px-5 pb-16"
+      className="relative z-10 mx-auto mt-10 max-w-6xl px-5 pb-10"
     >
       <div className="hud grid grid-cols-2 gap-6 p-7 md:grid-cols-5">
         {S.map(([I, a, b, n], i) => (
@@ -118,7 +118,7 @@ export function About() {
   });
   return (
     <Sec id="about" bg={A.bgAbout}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <div className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <Head n="01" e="About the event">
@@ -169,26 +169,27 @@ export function Impact() {
   const r = useRef<HTMLDivElement>(null);
   useGsap(r, () => {
     gsap.from(".im", {
-      y: 80,
+      y: 50,
       opacity: 0,
-      rotateX: -40,
-      transformPerspective: 800,
-      stagger: 0.12,
-      duration: 1,
-      ease: "expo.out",
+      scale: 0.96,
+      force3D: true,
+      stagger: 0.1,
+      duration: 0.9,
+      ease: "power3.out",
       scrollTrigger: { trigger: r.current, start: "top 80%", once: true },
     });
     count(r.current!);
   });
   return (
     <Sec id="impact" bg={A.bgImpact}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="02" e="Impact">
           A proven execution track record.
         </Head>
         <div className="mt-10 grid grid-cols-2 gap-6 md:grid-cols-4">
           {IMPACT.map(([v, l]) => (
-            <div key={l} className="im hud p-8">
+            <div key={l} className="im will-change-transform">
+              <div className="hud h-full p-8">
               <b
                 className="block font-head text-6xl text-red"
                 data-n={parseInt(v)}
@@ -197,6 +198,7 @@ export function Impact() {
                 {v}
               </b>
               <span className="mt-2 block text-sm text-black/70">{l}</span>
+              </div>
             </div>
           ))}
         </div>
@@ -208,13 +210,13 @@ export function Expect() {
   const r = useRef<HTMLDivElement>(null);
   useGsap(r, () => {
     gsap.from(".ex", {
-      y: 100,
+      y: 60,
       opacity: 0,
-      rotateX: -30,
-      transformPerspective: 800,
-      stagger: 0.12,
-      duration: 1.1,
-      ease: "expo.out",
+      scale: 0.96,
+      force3D: true,
+      stagger: 0.1,
+      duration: 0.9,
+      ease: "power3.out",
       scrollTrigger: { trigger: r.current, start: "top 78%", once: true },
     });
   });
@@ -227,16 +229,14 @@ export function Expect() {
   ];
   return (
     <Sec id="expect" bg={A.bgExpect}>
-      <div ref={r} className="mx-auto max-w-[92rem] px-5 py-24">
+      <div ref={r} className="mx-auto max-w-[92rem] px-5 py-14 md:py-16">
         <Head n="04" e="Event highlights">
           What to expect
         </Head>
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {X.map(([I, t, d]) => (
-            <div
-              key={t}
-              className="ex hud flex min-h-[22rem] flex-col justify-between p-8"
-            >
+            <div key={t} className="ex will-change-transform">
+            <div className="hud flex h-full min-h-[22rem] flex-col justify-between p-8">
               <span className="grid h-16 w-16 place-items-center rounded-full bg-red/10">
                 <I className="text-red" size={34} />
               </span>
@@ -244,6 +244,7 @@ export function Expect() {
                 <h3 className="text-3xl">{t}</h3>
                 <p className="mt-3 text-black/65">{d}</p>
               </div>
+            </div>
             </div>
           ))}
         </div>
@@ -276,7 +277,7 @@ export function Format() {
   });
   return (
     <Sec id="event" bg={A.bgFormat}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="05" e="Event format">
           Two days. One complete experience.
         </Head>
@@ -335,7 +336,7 @@ export function Agenda() {
   });
   return (
     <Sec id="agenda" bg={A.bgAgenda}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="06" e="Schedule">
           From competition to connection.
         </Head>
@@ -381,7 +382,7 @@ export function Audience() {
   });
   return (
     <Sec id="audience" bg={A.bgAud}>
-      <div ref={r} className="mx-auto max-w-6xl px-5 py-24">
+      <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
         <Head n="08" e="Audience">
           A high-intent technology community.
         </Head>

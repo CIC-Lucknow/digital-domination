@@ -198,7 +198,7 @@ export default function Hero() {
           alt=""
         />
       </div>
-      <div className="h-copy absolute inset-x-0 top-24 mx-auto max-w-4xl px-5 text-center">
+      <div className="h-copy absolute inset-x-0 top-28 md:top-36 mx-auto max-w-4xl px-5 text-center">
         <p className="scr eyebrow !text-ink" aria-label={EY}>
           {EY}
         </p>
@@ -232,6 +232,7 @@ export default function Hero() {
                 </div>
               ))}
             </div>
+            {/* TEMPORARILY HIDDEN: Register Now + Know More buttons
             <div className="mt-6 flex justify-center gap-3">
               <a id="register" href="#" className="pop btn bg-red text-white">
                 Register Now <ArrowRight size={16} />
@@ -243,6 +244,7 @@ export default function Hero() {
                 <Play size={14} /> Know More
               </a>
             </div>
+            */}
           </div>
           <div className="h-push absolute inset-x-0 top-6 opacity-0">
             <h2 className="text-4xl uppercase md:text-6xl">

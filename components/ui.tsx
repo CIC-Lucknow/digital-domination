@@ -55,13 +55,13 @@ export function Sec({
       {bg && (
         <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
           <img
-            className={`bgi h-[114%] w-full object-cover ${dark ? "opacity-50" : "opacity-30 saturate-[.6]"}`}
+            className={`bgi h-[114%] w-full object-cover ${dark ? "opacity-40" : "opacity-20 saturate-[.6]"}`}
             src={bg}
             alt=""
             loading="lazy"
           />
           <div
-            className={`absolute inset-0 ${dark ? "bg-ink/70" : "bg-gradient-to-b from-mist/90 via-mist/40 to-mist/90"}`}
+            className={`absolute inset-0 ${dark ? "bg-ink/60 backdrop-blur-[3px]" : "bg-gradient-to-b from-mist/70 via-mist/30 to-mist/70 backdrop-blur-[3px]"}`}
           />
         </div>
       )}
