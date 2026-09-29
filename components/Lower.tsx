@@ -68,27 +68,27 @@ export function Speakers() {
               key={i}
               className="hud spc flex h-auto md:h-[46vh] w-[min(88vw,36rem)] flex-col md:flex-row overflow-hidden"
             >
-              <div className="w-full md:w-2/5 shrink-0 bg-ink aspect-[3/4] md:aspect-auto order-1 md:order-1">
+              <div className="relative w-full md:w-2/5 shrink-0 bg-ink aspect-square md:aspect-auto order-1 md:order-1">
                 <img
                   src={A.person}
                   alt="Speaker to be announced"
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
+                <div className="absolute inset-x-3 bottom-3 rounded-lg border border-white/25 bg-white/10 px-4 py-2 backdrop-blur-md md:hidden">
+                  <h3 className="text-2xl text-white">Speaker Name</h3>
+                </div>
               </div>
-              <div className="flex flex-1 flex-col justify-center p-6 md:p-8 order-2 md:order-2">
+              <div className="flex flex-1 flex-col justify-center p-5 md:p-8 order-2 md:order-2">
                 <p className="eyebrow">{role}</p>
-                <h3 className="mt-2 text-3xl md:text-4xl">Speaker Name</h3>
+                <h3 className="mt-2 hidden text-4xl md:block">Speaker Name</h3>
                 <p className="mt-1 text-sm font-medium">
                   Designation · Organization
                 </p>
-                <p className="mt-3 text-sm text-black/60">
+                <p className="mt-3 hidden text-sm text-black/60 md:block">
                   Session topic and a short bio will appear here once the
                   speaker is confirmed.
                 </p>
-                <span className="mt-4 inline-flex w-fit items-center gap-2 border border-red/40 bg-white/50 px-3 py-1 text-xs backdrop-blur">
-                  <Linkedin size={14} /> Profile soon
-                </span>
               </div>
             </article>
           ))}
@@ -323,7 +323,7 @@ export function Footer() {
         loading="lazy"
         className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40"
       />
-      <div className="absolute inset-0 -z-10 bg-white/40 backdrop-blur-xl" />
+      <div className="absolute inset-0 -z-10 " />
       <div className="mx-auto max-w-6xl px-5 pb-6 pt-10 md:pt-12">
         <div className="ft hud grid gap-10 p-7 md:grid-cols-[1.7fr_1fr_1.2fr] md:p-10">
           <div>

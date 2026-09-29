@@ -1,5 +1,6 @@
 // Swap to your generated files (e.g. "/assets/sky.webp"). See PROMPTS.md.
 export const A = {
+  herotab: "/assets/hero2.png",
   sky: "/assets/sky.png",
   far: "/assets/far.png",
   near: "/assets/image.png",

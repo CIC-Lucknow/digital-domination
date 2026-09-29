@@ -16,14 +16,5 @@ export const DD1 = {
   ],
 };
 export const SHOTS = [1, 2, 3, 4, 5, 6, 7].map((n) => ({
-  src: `/assets/dd1-${n}.png`,
-  cap: [
-    "Opening moments",
-    "Competition floor",
-    "Workshop",
-    "Panel",
-    "Team huddle",
-    "Winners",
-    "Community",
-  ][n - 1],
+  src: `/assets/dd1-${n}.png`
 }));

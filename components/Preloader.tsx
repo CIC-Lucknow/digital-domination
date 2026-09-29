@@ -31,13 +31,7 @@ export default function Preloader() {
         c.style.display = "none";
       },
     });
-    tl.from(".pl-logo", {
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.6,
-      ease: "back.out(2)",
-    })
-      .to(
+    tl.to(
         o,
         {
           v: 100,
@@ -61,7 +55,7 @@ export default function Preloader() {
         { opacity: 1, x: 0, stagger: 0.6, duration: 0.3 },
         0.2,
       )
-      .to(".pl-in", { opacity: 0, y: -30, duration: 0.4 }, "+=.15")
+      .to(".pl-fade", { opacity: 0, y: -30, duration: 0.4 }, "+=.15")
       .add(done, "<.15")
       .fromTo(
         ".pl-flash",
@@ -89,18 +83,24 @@ export default function Preloader() {
     >
       <div className="pl-top absolute inset-x-0 top-0 h-1/2 bg-ink" />
       <div className="pl-bot absolute inset-x-0 bottom-0 h-1/2 bg-ink" />
-      <div className="pl-flash absolute inset-x-0 top-1/2 z-20 h-0.5 bg-red shadow-[0_0_24px_#d81f27]" />
+      <div
+        className="pl-flash absolute inset-x-0 top-1/2 z-20 h-0.5 bg-red shadow-[0_0_24px_#d81f27]"
+        style={{ transform: "scaleX(0)" }}
+      />
       <div className="pl-in absolute inset-0 z-10 flex flex-col items-center justify-center gap-6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={A.logo2} alt="" className="pl-logo h-20" />
-        <div className="font-head text-[clamp(5rem,20vw,11rem)] leading-none">
+        <div className="pl-fade font-head text-[clamp(5rem,20vw,11rem)] leading-none">
           <span className="pl-n">000</span>
           <span className="text-red">%</span>
         </div>
-        <div className="h-px w-64 bg-white/15">
-          <div className="pl-bar h-full origin-left bg-red" />
+        <div className="pl-fade h-px w-64 bg-white/15">
+          <div
+            className="pl-bar h-full origin-left bg-red"
+            style={{ transform: "scaleX(0)" }}
+          />
         </div>
-        <ul className="w-64 font-mono text-[11px] text-white/60">
+        <ul className="pl-fade w-64 font-mono text-[11px] text-white/60">
           {L.map((l) => (
             <li key={l} className="pl-l">
               &gt; {l}

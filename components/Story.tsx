@@ -236,13 +236,13 @@ export function Expect() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {X.map(([I, t, d]) => (
             <div key={t} className="ex will-change-transform">
-            <div className="hud flex h-full min-h-[22rem] flex-col justify-between p-8">
+            <div className="hud flex h-full flex-col gap-4 p-6">
               <span className="grid h-16 w-16 place-items-center rounded-full bg-red/10">
                 <I className="text-red" size={34} />
               </span>
               <div>
-                <h3 className="text-3xl">{t}</h3>
-                <p className="mt-3 text-black/65">{d}</p>
+                <h3 className="text-2xl">{t}</h3>
+                <p className="mt-2 text-black/65">{d}</p>
               </div>
             </div>
             </div>
@@ -262,16 +262,16 @@ export function Format() {
       ease: "expo.out",
       scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
     });
+    const mobile = innerWidth < 768;
     gsap.utils
       .toArray<HTMLElement>(".fi")
-      .forEach((e, i) =>
+      .forEach((e) =>
         gsap.from(e, {
-          x: 100,
+          y: mobile ? 24 : 40,
           opacity: 0,
-          duration: 1,
-          delay: i * 0.05,
-          ease: "expo.out",
-          scrollTrigger: { trigger: e, start: "top 85%", toggleActions: "play none none reverse" },
+          duration: mobile ? 0.45 : 0.8,
+          ease: "power3.out",
+          scrollTrigger: { trigger: e, start: mobile ? "top 110%" : "top 96%", toggleActions: "play none none none" },
         }),
       );
   });
