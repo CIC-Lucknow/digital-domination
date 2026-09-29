@@ -95,19 +95,19 @@ export default function Legacy() {
             <button
               key={s.src}
               onClick={() => setO(i)}
-              aria-label={`Open photo: ${s.cap}`}
+              aria-label={`Open photo: ${i}`}
               className={`sh group relative overflow-hidden border-4 border-white/70 bg-white/40 text-left backdrop-blur ${SP[i]}`}
             >
               <img
                 src={src(i)}
                 onError={() => fail(i)}
-                alt={s.cap}
+                alt={i}
                 decoding="async"
                 className="h-full w-full object-cover"
               />
-              <span className="absolute inset-x-0 bottom-0 translate-y-full bg-white/60 p-3 font-head text-lg backdrop-blur-xl transition group-hover:translate-y-0">
+              {/* <span className="absolute inset-x-0 bottom-0 translate-y-full bg-white/60 p-3 font-head text-lg backdrop-blur-xl transition group-hover:translate-y-0">
                 {s.cap}
-              </span>
+              </span> */}
             </button>
           ))}
         </div>

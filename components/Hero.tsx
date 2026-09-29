@@ -120,12 +120,17 @@ export default function Hero() {
       .to(".l-near", { scale: 2.6, opacity: 0, ease: "power2.in" }, 0)
       .to(".rw", { scale: 1.8, opacity: 0 }, 0)
       .to(".h-title", { scale: 0.86, y: 10 }, 0.3)
-      .to(".h-sub", { opacity: 0, y: -40, filter: "blur(10px)" }, 0.3)
+      .to(
+        ".h-dates",
+        { scale: 1.45, y: 30, duration: 0.6, ease: "power1.inOut" },
+        0,
+      )
+      .to(".h-sub", { opacity: 0, y: -40, filter: "blur(10px)" }, 0.6)
       .fromTo(
         ".h-push",
         { opacity: 0, y: 50, filter: "blur(12px)" },
         { opacity: 1, y: 0, filter: "blur(0px)" },
-        0.6,
+        0.9,
       );
     return () => {
       removeEventListener("mousemove", mv);
@@ -196,13 +201,16 @@ export default function Hero() {
         />
       ))}
       <div className="lw-near absolute inset-0">
-        <img
-          className="l-near h-full w-full object-cover"
-          src={A.near}
-          alt=""
-        />
+        <picture>
+          <source media="(max-width: 1023px)" srcSet={A.herotab} />
+          <img
+            className="l-near h-full w-full object-cover"
+            src={A.near}
+            alt=""
+          />
+        </picture>
       </div>
-      <div className="h-copy absolute inset-x-0 top-28 md:top-36 mx-auto max-w-4xl px-5 text-center">
+      <div className="h-copy absolute inset-x-0 top-48 md:top-64 mx-auto max-w-4xl px-5 text-center">
         <p className="scr eyebrow !text-ink" aria-label={EY}>
           {EY}
         </p>
@@ -222,7 +230,7 @@ export default function Hero() {
                 LEARNING, COMPETITION &amp; CONNECTION.
               </span>
             </p>
-            <div className="mt-6 flex flex-wrap justify-center gap-3 text-left text-xs">
+            <div className="h-dates mt-6 flex origin-top flex-wrap justify-center gap-3 text-left text-xs">
               {D.map(([I, a, b]) => (
                 <div
                   key={b}
