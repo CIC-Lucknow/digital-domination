@@ -5,6 +5,7 @@ import { ArrowRight, Menu, X } from "lucide-react";
 import { useGsap } from "@/lib/useGsap";
 import { A } from "@/lib/assets";
 import { NAV } from "@/lib/content";
+import { SITE } from "@/lib/site";
 
 export default function Header() {
   const r = useRef<HTMLElement>(null);
@@ -54,9 +55,14 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-          {/* <a href="#register" className="btn bg-red text-white hidden md:block">
+          <a
+            href={SITE.register}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn bg-red text-white hidden md:inline-flex"
+          >
             Register Now <ArrowRight size={16} />
-          </a> */}
+          </a>
           <button
             className="lg:hidden p-2 text-ink"
             onClick={() => setOpen(!open)}
@@ -83,7 +89,9 @@ export default function Header() {
           </a>
         ))}
         <a
-          href="#register"
+          href={SITE.register}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={() => setOpen(false)}
           className="btn bg-red text-white text-center mt-2"
         >

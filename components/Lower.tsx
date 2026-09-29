@@ -17,6 +17,7 @@ import { A } from "@/lib/assets";
 import { Sec, Head } from "@/components/ui";
 import { Terminal } from "@/components/Extras";
 import { SPEAKERS, CATS, SPONSORS, FAQ } from "@/lib/content";
+import { SITE } from "@/lib/site";
 /* eslint-disable @next/next/no-img-element */
 export function Speakers() {
   const r = useRef<HTMLDivElement>(null);
@@ -344,7 +345,12 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <a href="#register" className="btn mt-6 bg-red text-white">
+            <a
+              href={SITE.register}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn mt-6 bg-red text-white"
+            >
               Register Now <ArrowRight size={16} />
             </a>
           </div>

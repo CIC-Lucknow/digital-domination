@@ -49,7 +49,7 @@ export function Stats() {
     count(r.current!);
   });
   const S: [typeof Users, string, string, string?][] = [
-    [Users, "", "Expected attendees", "500"],
+    [Users, "", "Expected attendees", "300"],
     [Calendar, "2 Days", "CTF + Offline event"],
     [Users, "Expert", "Speakers & workshops"],
     [FileText, "", "Sessions", "10"],

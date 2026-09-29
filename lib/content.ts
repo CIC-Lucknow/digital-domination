@@ -130,7 +130,7 @@ export const FAQ = [
   ],
   [
     "How do I register?",
-    "Use the Register Now button. Registration opens soon.",
+    "Registrations are live. Use the Register Now button.",
   ],
   [
     "Will I get a certificate?",

@@ -47,14 +47,6 @@ export default function Legacy() {
         },
       );
     });
-    gsap.from(".ds", {
-      y: 50,
-      opacity: 0,
-      stagger: 0.1,
-      duration: 1,
-      ease: "expo.out",
-      scrollTrigger: { trigger: ".ds", start: "top 92%", once: true },
-    });
   });
   useEffect(() => {
     const k = (e: KeyboardEvent) => {
@@ -81,14 +73,6 @@ export default function Legacy() {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
-          {DD1.stats.map(([v, l]) => (
-            <div key={l} className="ds hud p-6">
-              <b className="block font-head text-4xl text-red">{v}</b>
-              <span className="text-sm text-black/60">{l}</span>
-            </div>
-          ))}
         </div>
         <div className="mt-10 grid auto-rows-[13rem] grid-cols-2 gap-4 md:grid-cols-4">
           {SHOTS.map((s, i) => (
