@@ -2,7 +2,7 @@
 export const A = {
   sky: "/assets/sky.png",
   far: "/assets/far.png",
-  near: "/assets/near.png",
+  near: "/assets/image.png",
   about: "/assets/imambara.png",
   venue: "/assets/venue.png",
   hacker: "/assets/hacker.png",
@@ -21,4 +21,5 @@ export const A = {
   bgFooter: "/assets/bg-footer.png",
   bgImpact: "/assets/bg-impact.png",
   bgAud: "/assets/bg-aud.png",
+  logo2: "/assets/logo-w.png"
 };

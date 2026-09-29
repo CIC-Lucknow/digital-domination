@@ -92,7 +92,7 @@ export default function Preloader() {
       <div className="pl-flash absolute inset-x-0 top-1/2 z-20 h-0.5 bg-red shadow-[0_0_24px_#d81f27]" />
       <div className="pl-in absolute inset-0 z-10 flex flex-col items-center justify-center gap-6">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={A.logo} alt="" className="pl-logo h-14 invert" />
+        <img src={A.logo2} alt="" className="pl-logo h-20" />
         <div className="font-head text-[clamp(5rem,20vw,11rem)] leading-none">
           <span className="pl-n">000</span>
           <span className="text-red">%</span>
