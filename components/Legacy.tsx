@@ -101,7 +101,7 @@ export default function Legacy() {
               <img
                 src={src(i)}
                 onError={() => fail(i)}
-                alt={i}
+                alt={String(i)}
                 decoding="async"
                 className="h-full w-full object-cover"
               />
