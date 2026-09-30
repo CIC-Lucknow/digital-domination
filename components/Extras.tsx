@@ -2,10 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { ArrowRight } from "lucide-react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGsap } from "@/lib/useGsap";
 import { type } from "@/lib/fx";
 import { A } from "@/lib/assets";
+import { SITE } from "@/lib/site";
 import { Sec, Head } from "@/components/ui";
 
 export function Marquee() {
@@ -186,7 +188,7 @@ export function Countdown() {
         </Head>
 
         <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {EV.map(([a, b, t]) => (
+          {EV.map(([a, b, t], i) => (
             <div key={a} className="cd">
             <div className="hud glass-dark h-full p-8">
               <p className="eyebrow">{a}</p>
@@ -196,6 +198,16 @@ export function Countdown() {
               </h3>
 
               <Clock t={t} />
+
+              <a
+                href={i === 0 ? SITE.registerCtf : SITE.registerOffline}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn mt-6 w-full justify-center bg-red text-white"
+              >
+                Register for {i === 0 ? "Online CTF" : "Offline Meet"}{" "}
+                <ArrowRight size={16} />
+              </a>
             </div>
             </div>
           ))}

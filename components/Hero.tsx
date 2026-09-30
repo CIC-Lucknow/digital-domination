@@ -5,6 +5,7 @@ import { Calendar, MapPin, ArrowRight, Play } from "lucide-react";
 import { useGsap } from "@/lib/useGsap";
 import { scramble } from "@/lib/fx";
 import { A } from "@/lib/assets";
+import { SITE } from "@/lib/site";
 const EY = "CYBER INTELLIGENCE COMMUNITY LUCKNOW PRESENTS";
 export default function Hero() {
   const r = useRef<HTMLElement>(null);
@@ -210,7 +211,7 @@ export default function Hero() {
           />
         </picture>
       </div>
-      <div className="h-copy absolute inset-x-0 top-48 md:top-64 mx-auto max-w-4xl px-5 text-center">
+      <div className="h-copy absolute inset-x-0 top-32 md:top-48 mx-auto max-w-4xl px-5 text-center">
         <p className="scr eyebrow !text-ink" aria-label={EY}>
           {EY}
         </p>
@@ -230,6 +231,17 @@ export default function Hero() {
                 LEARNING, COMPETITION &amp; CONNECTION.
               </span>
             </p>
+            <div className="mt-5 flex justify-center">
+              <a
+                id="register"
+                href={SITE.register}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="pop btn bg-red px-10 py-5 text-xl text-white shadow-[0_0_30px_rgba(216,31,39,.45)] md:px-16 md:py-7 md:text-3xl"
+              >
+                Register Now <ArrowRight size={28} />
+              </a>
+            </div>
             <div className="h-dates mt-6 flex origin-top flex-wrap justify-center gap-3 text-left text-xs">
               {D.map(([I, a, b]) => (
                 <div
@@ -262,7 +274,7 @@ export default function Hero() {
             <h2 className="text-4xl uppercase md:text-6xl">
               Step inside <span className="text-red">the arch.</span>
             </h2>
-            <p className="mt-3">Scroll to explore the experience.</p>
+            {/* <p className="mt-3">Scroll to explore the experience.</p> */}
           </div>
         </div>
       </div>

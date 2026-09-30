@@ -1,3 +1,4 @@
+import type { A } from "@/lib/assets";
 export const NAV = [
   ["About", "about"],
   ["Event", "event"],
@@ -64,12 +65,38 @@ export const AGENDA = [
     "Close the experience by connecting students, practitioners and industry, followed by recognition of CTF winners.",
   ],
 ];
-export const SPEAKERS = [
-  "TECHNICAL SESSION",
-  "TECHNICAL SESSION",
-  "HANDS-ON WORKSHOP",
-  "INDUSTRY SESSION",
-  "KEYNOTE / CLOSING",
+export const SPEAKERS: {
+  session: string;
+  topic: string;
+  name: string;
+  role: string;
+  org: string;
+  img: keyof typeof A;
+}[] = [
+  {
+    session: "Session 1",
+    topic: "AI Security",
+    name: "Abhiraj Singh",
+    role: "Senior Security Engineer",
+    org: "InMobi",
+    img: "speakerAbhiraj",
+  },
+  {
+    session: "Session 2",
+    topic: "AMA",
+    name: "Zuhaib Khan",
+    role: "Sr. Software Engineer",
+    org: "BFC Capital",
+    img: "speakerZuhaib",
+  },
+  {
+    session: "Session 2",
+    topic: "AMA",
+    name: "Kishan Kumar",
+    role: "Manager - Cyber Security",
+    org: "BDO",
+    img: "speakerKishan",
+  },
 ];
 export const AUD = [
   [
@@ -109,11 +136,7 @@ export const CATS = [
 ];
 export const SPONSORS = [
   "Title Sponsor",
-  "Powered By",
   "Gold Sponsor",
-  "Knowledge Partner",
-  "Community Partner",
-  "Media Partner",
 ];
 export const FAQ = [
   [
@@ -130,7 +153,7 @@ export const FAQ = [
   ],
   [
     "How do I register?",
-    "Use the Register Now button. Registration opens soon.",
+    "Registrations are live. Use the Register Now button.",
   ],
   [
     "Will I get a certificate?",

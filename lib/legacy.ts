@@ -3,12 +3,6 @@ export const DD1 = {
   title: "Digital Domination 1.0",
   blurb:
     "The first edition brought students, practitioners and CIC volunteers together for practical, hands-on cybersecurity. Version 2.0 builds on that foundation.",
-  stats: [
-    ["—", "Participants"],
-    ["—", "Teams"],
-    ["—", "Speakers"],
-    ["—", "Sessions"],
-  ],
   points: [
     "Hands-on learning over lectures",
     "A community-first way of organising",
