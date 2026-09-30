@@ -361,6 +361,12 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-5 pb-6 pt-10 md:pt-12">
         <div className="ft hud grid gap-10 p-7 md:grid-cols-[1.7fr_1fr_1.2fr] md:p-10">
           <div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/logo.png"
+              alt="Cyber Intelligence Community"
+              className="mb-5 h-20"
+            />
             <p className="eyebrow">Cyber Intelligence Community / Lucknow</p>
             <p className="mt-3 font-head text-5xl font-bold uppercase leading-[.9] md:text-6xl">
               Digital <span className="text-red">Domination 2.0</span>
