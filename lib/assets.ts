@@ -26,6 +26,8 @@ export const A = {
   speakerAbhiraj: "/speakers/abhiraj.png",
   speakerZuhaib: "/speakers/zuhaib.png",
   speakerKishan: "/speakers/kishan.png",
+  naman: "/speakers/naman.png",
+  utkarsh: "/speakers/utkarsh.png",
   sponsorInmobi: "/sponsors/inmobi.png",
   sponsorProdigy: "/sponsors/prodigy.png",
   sponsorOsen: "/sponsors/OSEN.png",
