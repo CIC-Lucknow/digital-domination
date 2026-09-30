@@ -180,8 +180,8 @@ const SPONSOR_LOGOS: Record<string, { src: string; name: string }> = {
   "Gold Sponsor": { src: A.sponsorProdigy, name: "Prodigy" },
 };
 const OTHER_SPONSORS = [
-  { src: A.sponsorOsen, name: "OSEN" },
   { src: A.sponsorCodevirus, name: "Codevirus" },
+  { src: A.sponsorOsen, name: "OSEN" },
   { src: A.sponsorXyz, name: "XYZ", scale: "scale-75" },
 ];
 export function Sponsors() {

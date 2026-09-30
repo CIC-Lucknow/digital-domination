@@ -97,6 +97,21 @@ export const SPEAKERS: {
     org: "BDO",
     img: "speakerKishan",
   },
+  {
+    session: "Session 3",
+    topic: "LLM Security",
+    name: "Naman Agrawal",
+    role: "",
+    org: "",
+    img: "naman",
+  },{
+    session: "Workshop",
+    topic: "Mobile Security",
+    name: "Utkarsh vishwakarma",
+    role: "",
+    org: "",
+    img: "utkarsh",
+  },
 ];
 export const AUD = [
   [
@@ -140,27 +155,47 @@ export const SPONSORS = [
 ];
 export const FAQ = [
   [
+    "What is Digital Domination 2.0?",
+    "A two-day cybersecurity experience by Cyber Intelligence Community Lucknow: an online CTF on 5 October 2026 and an offline summit in Lucknow on 10 October 2026, built around learning, competition and connection.",
+  ],
+  [
     "Who can participate?",
-    "Students, professionals and cybersecurity enthusiasts. The CTF is open to individuals or teams of up to two.",
-  ],
-  [
-    "Is the event completely free?",
-    "Registration details will be announced on this page.",
-  ],
-  [
-    "Do I need prior experience for CTF?",
-    "No. Challenges span several categories so learners can start where they are comfortable.",
+    "Students, practitioners, faculty and cybersecurity enthusiasts. You don't need to be a security specialist to join.",
   ],
   [
     "How do I register?",
-    "Registrations are live. Use the Register Now button.",
+    "Registrations are live on Commudle. The Online CTF and the Offline Event have separate registration pages, so use the Register button on each card in the countdown section. Register for both if you want to attend both days.",
   ],
   [
-    "Will I get a certificate?",
-    "Certificate details will be shared with registered participants.",
+    "Do I need to register separately for the CTF and the offline event?",
+    "Yes. They are two separate events on Commudle. Registering for one does not register you for the other.",
   ],
   [
-    "Can I attend only the offline event?",
-    "Details on attending the 10 October summit will be shared with registration.",
+    "When and how does the CTF run?",
+    "The Online CTF runs on 5 October 2026 from 12:00 PM to 12:00 AM IST. It is a 12-hour Jeopardy-style competition that you can play from anywhere.",
+  ],
+  [
+    "Can I play the CTF solo or in a team?",
+    "Both. You can compete individually or in a team of up to two people.",
+  ],
+  [
+    "Do I need prior CTF experience?",
+    "No. Challenges cover Web Security, OSINT, Digital Forensics, Cryptography, Reverse Engineering, Networking and Linux, so you can start with the category you are most comfortable in.",
+  ],
+  [
+    "What happens at the offline event?",
+    "On 10 October 2026, from 10 AM to 4 PM, the Lucknow summit brings expert-led technical sessions, a hands-on workshop, industry interaction and networking, followed by the CTF winner felicitation.",
+  ],
+  [
+    "Is there a fee, and will I get a certificate?",
+    "Entry and certificate details are published on each event's Commudle page. Anything new will also be shared with registered participants.",
+  ],
+  [
+    "Can I attend only the offline event, or only the CTF?",
+    "Yes. Each day stands on its own, so you can register for just the one you want, or both.",
+  ],
+  [
+    "Are there prizes?",
+    "Yes. The CTF ends with a winner felicitation on Day 2, along with prizes, goodies and recognition.",
   ],
 ];
