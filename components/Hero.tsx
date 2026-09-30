@@ -76,6 +76,7 @@ export default function Hero() {
         },
         1.5,
       )
+      .from(".mw", { yPercent: 100, opacity: 0, duration: 1.4 }, 1.4)
       .from(".sc", { opacity: 0, duration: 1 }, 2);
     const go = () => {
       intro.play();
@@ -119,6 +120,7 @@ export default function Hero() {
       .to(".l-sky", { scale: 1.12 }, 0)
       .to(".l-far", { scale: 1.7 }, 0)
       .to(".l-near", { scale: 2.6, opacity: 0, ease: "power2.in" }, 0)
+      .to(".mascot", { yPercent: 40, scale: 1.3, opacity: 0, ease: "power2.in", duration: 0.35 }, 0)
       .to(".rw", { scale: 1.8, opacity: 0 }, 0)
       .to(".h-title", { scale: 0.86, y: 10 }, 0.3)
       .to(

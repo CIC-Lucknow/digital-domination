@@ -38,7 +38,7 @@ export default function Header() {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <a href="#top">
           <img
-            src={A.logo}
+            src="/assets/logo.png"
             alt="Cyber Intelligence Community"
             className="h-20"
           />

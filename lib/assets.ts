@@ -4,6 +4,7 @@ export const A = {
   sky: "/assets/sky.png",
   far: "/assets/far.png",
   near: "/assets/image.png",
+  mascot: "/assets/mascot.webm",
   about: "/assets/imambara.png",
   venue: "/assets/venue.png",
   hacker: "/assets/hacker.png",

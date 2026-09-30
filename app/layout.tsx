@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
-  icons: { icon: "/assets/logo.svg" },
+  icons: { icon: "/assets/logo-w.png", apple: "/assets/logo-w.png" },
 };
 export const viewport: Viewport = {
   themeColor: "#eef0f2",
