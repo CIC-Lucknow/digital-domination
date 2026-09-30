@@ -274,7 +274,7 @@ export default function Hero() {
             <h2 className="text-4xl uppercase md:text-6xl">
               Step inside <span className="text-red">the arch.</span>
             </h2>
-            <p className="mt-3">Scroll to explore the experience.</p>
+            {/* <p className="mt-3">Scroll to explore the experience.</p> */}
           </div>
         </div>
       </div>

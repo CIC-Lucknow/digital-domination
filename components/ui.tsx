@@ -75,17 +75,22 @@ export const Head = ({
   e,
   children,
   dark,
+  small,
 }: {
   n: string;
   e: string;
   children: React.ReactNode;
   dark?: boolean;
+  small?: boolean;
 }) => (
   <div className={dark ? "text-white" : ""}>
     <p className="eyebrow" data-reveal>
       {n} / {e}
     </p>
-    <h2 data-split className="mt-3 max-w-4xl text-4xl uppercase md:text-6xl">
+    <h2
+      data-split
+      className={`mt-3 max-w-4xl uppercase ${small ? "text-2xl md:text-4xl" : "text-4xl md:text-6xl"}`}
+    >
       {children}
     </h2>
   </div>

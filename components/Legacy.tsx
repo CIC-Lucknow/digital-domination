@@ -8,14 +8,15 @@ import { Sec, Head } from "@/components/ui";
 import { DD1, SHOTS } from "@/lib/legacy";
 /* eslint-disable @next/next/no-img-element */
 const EXT = ["png", "webp", "jpg", "jpeg", "avif"];
+// Desktop spans (cols = rows) on a 12-col grid; first tile is full-width on mobile.
 const SP = [
-  "md:col-span-2 md:row-span-2",
-  "",
-  "",
-  "md:col-span-2",
-  "md:col-span-2",
-  "",
-  "",
+  "col-span-2 md:col-span-8 md:row-span-8",
+  "md:col-span-4 md:row-span-4",
+  "md:col-span-4 md:row-span-4",
+  "md:col-span-3 md:row-span-3",
+  "md:col-span-3 md:row-span-3",
+  "md:col-span-3 md:row-span-3",
+  "md:col-span-3 md:row-span-3",
 ];
 export default function Legacy() {
   const r = useRef<HTMLDivElement>(null);
@@ -35,15 +36,6 @@ export default function Legacy() {
           duration: 1.3,
           ease: "expo.out",
           scrollTrigger: { trigger: e, start: "top 92%", once: true },
-        },
-      );
-      gsap.fromTo(
-        e.querySelector("img"),
-        { yPercent: -8, scale: 1.2 },
-        {
-          yPercent: 8,
-          ease: "none",
-          scrollTrigger: { trigger: e, scrub: true },
         },
       );
     });
@@ -74,26 +66,27 @@ export default function Legacy() {
             ))}
           </ul>
         </div>
-        <div className="mt-10 grid auto-rows-[13rem] grid-cols-2 gap-4 md:grid-cols-4">
-          {SHOTS.map((s, i) => (
-            <button
-              key={s.src}
-              onClick={() => setO(i)}
-              aria-label={`Open photo: ${i}`}
-              className={`sh group relative overflow-hidden border-4 border-white/70 bg-white/40 text-left backdrop-blur ${SP[i]}`}
-            >
-              <img
-                src={src(i)}
-                onError={() => fail(i)}
-                alt={String(i)}
-                decoding="async"
-                className="h-full w-full object-cover"
-              />
-              {/* <span className="absolute inset-x-0 bottom-0 translate-y-full bg-white/60 p-3 font-head text-lg backdrop-blur-xl transition group-hover:translate-y-0">
-                {s.cap}
-              </span> */}
-            </button>
-          ))}
+        <div className="mt-10 [container-type:inline-size]">
+          {/* 4:3 cells: a tile spanning n columns and n rows stays exactly 4:3 */}
+          <div className="grid grid-cols-2 md:auto-rows-[6.25cqw] md:grid-cols-12">
+            {SHOTS.map((s, i) => (
+              <div key={s.src} className={`p-1.5 ${SP[i]}`}>
+                <button
+                  onClick={() => setO(i)}
+                  aria-label={`Open photo: ${i}`}
+                  className="sh group relative block aspect-[4/3] w-full overflow-hidden border-4 border-white/70 bg-white/40 text-left backdrop-blur md:aspect-auto md:h-full"
+                >
+                  <img
+                    src={src(i)}
+                    onError={() => fail(i)}
+                    alt={String(i)}
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {o !== null && (

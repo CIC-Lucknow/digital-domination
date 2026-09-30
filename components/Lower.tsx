@@ -60,35 +60,33 @@ export function Speakers() {
               Speakers
             </h3>
             <p className="mt-3 text-sm text-black/65">
-              Expert-led technical sessions and practical learning. Speakers
-              will be announced as the lineup is confirmed.
+              Expert-led technical sessions and practical learning. More
+              speakers will be announced as the lineup is confirmed.
             </p>
           </div>
-          {SPEAKERS.map((role, i) => (
+          {SPEAKERS.map((s) => (
             <article
-              key={i}
+              key={s.name}
               className="hud spc flex h-auto md:h-[46vh] w-[min(88vw,36rem)] flex-col md:flex-row overflow-hidden"
             >
               <div className="relative w-full md:w-2/5 shrink-0 bg-ink aspect-square md:aspect-auto order-1 md:order-1">
                 <img
-                  src={A.person}
-                  alt="Speaker to be announced"
+                  src={A[s.img]}
+                  alt={s.name}
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-x-3 bottom-3 rounded-lg border border-white/25 bg-white/10 px-4 py-2 backdrop-blur-md md:hidden">
-                  <h3 className="text-2xl text-white">Speaker Name</h3>
+                  <h3 className="text-2xl text-white">{s.name}</h3>
                 </div>
               </div>
               <div className="flex flex-1 flex-col justify-center p-5 md:p-8 order-2 md:order-2">
-                <p className="eyebrow">{role}</p>
-                <h3 className="mt-2 hidden text-4xl md:block">Speaker Name</h3>
-                <p className="mt-1 text-sm font-medium">
-                  Designation · Organization
+                <p className="eyebrow">
+                  {s.session} · {s.topic}
                 </p>
-                <p className="mt-3 hidden text-sm text-black/60 md:block">
-                  Session topic and a short bio will appear here once the
-                  speaker is confirmed.
+                <h3 className="mt-2 hidden text-4xl md:block">{s.name}</h3>
+                <p className="mt-1 text-sm font-medium">
+                  {s.role} · {s.org}
                 </p>
               </div>
             </article>
@@ -177,37 +175,72 @@ export function Ctf() {
     </Sec>
   );
 }
+const SPONSOR_LOGOS: Record<string, { src: string; name: string }> = {
+  "Title Sponsor": { src: A.sponsorInmobi, name: "InMobi" },
+  "Gold Sponsor": { src: A.sponsorProdigy, name: "Prodigy" },
+};
+const OTHER_SPONSORS = [
+  { src: A.sponsorOsen, name: "OSEN" },
+  { src: A.sponsorCodevirus, name: "Codevirus" },
+  { src: A.sponsorXyz, name: "XYZ", scale: "scale-75" },
+];
 export function Sponsors() {
   const r = useRef<HTMLDivElement>(null);
   useGsap(r, () => {
     gsap.from(".sp", {
-      y: 70,
+      y: 30,
       opacity: 0,
-      stagger: 0.1,
-      duration: 1,
-      ease: "expo.out",
-      scrollTrigger: { trigger: r.current, start: "top 75%", toggleActions: "play none none reverse" },
+      stagger: 0.05,
+      duration: 0.5,
+      ease: "power3.out",
+      scrollTrigger: { trigger: r.current, start: "top 95%", once: true },
     });
   });
   return (
     <Sec id="sponsors" bg={A.bgSponsors}>
       <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
-        <Head n="11" e="Sponsors & supporters">
+        <Head small n="11" e="Sponsors & supporters">
           Organizations supporting the experience
         </Head>
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
           {SPONSORS.map((t) => (
             <div
               key={t}
-              className="sp hud group flex h-72 flex-col justify-between p-6"
+              className="sp hud group flex h-52 flex-col justify-between p-4 md:h-56"
             >
-              <div className="grid flex-1 place-items-center border border-dashed border-black/20 bg-white/40 font-head text-2xl text-black/30 backdrop-blur">
-                LOGO
-              </div>
-              <p className="mt-4 inline-flex w-fit items-center gap-2 self-center bg-ink/90 px-5 py-2 font-head text-sm uppercase tracking-[.18em] text-white shadow-[0_10px_24px_-12px_rgba(17,19,21,.7)] backdrop-blur transition-colors duration-300 [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)] group-hover:bg-red">
+              {SPONSOR_LOGOS[t] ? (
+                <div className="grid min-h-0 flex-1 place-items-center border border-black/10 bg-white/70 p-4 backdrop-blur">
+                  <img
+                    src={SPONSOR_LOGOS[t].src}
+                    alt={SPONSOR_LOGOS[t].name}
+                    loading="lazy"
+                    className="max-h-full max-w-full object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="grid flex-1 place-items-center border border-dashed border-black/20 bg-white/40 font-head text-2xl text-black/30 backdrop-blur">
+                  LOGO
+                </div>
+              )}
+              <p className="mt-3 inline-flex w-fit items-center gap-2 self-center bg-ink/90 px-4 py-1.5 font-head text-xs uppercase tracking-[.18em] text-white shadow-[0_10px_24px_-12px_rgba(17,19,21,.7)] backdrop-blur transition-colors duration-300 [clip-path:polygon(10px_0,100%_0,100%_calc(100%-10px),calc(100%-10px)_100%,0_100%,0_10px)] group-hover:bg-red">
                 <i className="h-1.5 w-1.5 rotate-45 bg-red transition-colors duration-300 group-hover:bg-white" />
                 {t}
               </p>
+            </div>
+          ))}
+          {OTHER_SPONSORS.map(({ src, name, scale }) => (
+            <div
+              key={name}
+              className="sp hud flex h-52 flex-col justify-center p-4 md:h-56"
+            >
+              <div className="grid min-h-0 flex-1 place-items-center border border-black/10 bg-white/70 p-4 backdrop-blur">
+                <img
+                  src={src}
+                  alt={name}
+                  loading="lazy"
+                  className={`max-h-full max-w-full object-contain ${scale ?? ""}`}
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -221,11 +254,11 @@ export function Faq() {
   useGsap(r, () => {
     gsap.utils.toArray<HTMLElement>(".fq").forEach((e) =>
       gsap.from(e, {
-        y: 50,
+        y: 24,
         opacity: 0,
-        duration: 0.9,
-        ease: "expo.out",
-        scrollTrigger: { trigger: e, start: "top 88%", toggleActions: "play none none reverse" },
+        duration: 0.5,
+        ease: "power3.out",
+        scrollTrigger: { trigger: e, start: "top 98%", once: true },
       }),
     );
   });
@@ -282,12 +315,12 @@ export function Footer() {
   const r = useRef<HTMLElement>(null);
   useGsap(r, () => {
     gsap.from(".ft", {
-      y: 40,
+      y: 24,
       opacity: 0,
-      stagger: 0.12,
-      duration: 0.9,
+      stagger: 0.06,
+      duration: 0.5,
       ease: "power3.out",
-      scrollTrigger: { trigger: r.current, start: "top 92%", once: true },
+      scrollTrigger: { trigger: r.current, start: "top 100%", once: true },
     });
   });
   const L = [

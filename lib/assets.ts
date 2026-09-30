@@ -22,5 +22,13 @@ export const A = {
   bgFooter: "/assets/bg-footer.png",
   bgImpact: "/assets/bg-impact.png",
   bgAud: "/assets/bg-aud.png",
-  logo2: "/assets/logo-w.png"
+  logo2: "/assets/logo-w.png",
+  speakerAbhiraj: "/speakers/abhiraj.png",
+  speakerZuhaib: "/speakers/zuhaib.png",
+  speakerKishan: "/speakers/kishan.png",
+  sponsorInmobi: "/sponsors/inmobi.png",
+  sponsorProdigy: "/sponsors/prodigy.png",
+  sponsorOsen: "/sponsors/OSEN.png",
+  sponsorCodevirus: "/sponsors/codevirus.png",
+  sponsorXyz: "/sponsors/xyz.png",
 };
