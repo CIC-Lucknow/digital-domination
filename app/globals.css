@@ -198,3 +198,11 @@ body::before {
   border-color: #d81f27;
   box-shadow: 0 0 16px rgba(216, 31, 39, 0.4);
 }
+@keyframes orgscan {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(560px);
+  }
+}

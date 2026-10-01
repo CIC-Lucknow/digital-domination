@@ -6,6 +6,7 @@ export const NAV = [
   ["Speakers", "speakers"],
   ["CTF", "ctf"],
   ["DD 1.0", "legacy"],
+  ["Team", "team"],
   ["Sponsors", "sponsors"],
   ["FAQ", "faq"],
 ];
