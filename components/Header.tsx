@@ -40,7 +40,7 @@ export default function Header() {
           <img
             src="/assets/logo.png"
             alt="Cyber Intelligence Community"
-            className="h-20"
+            className="h-16"
           />
         </a>
         <nav aria-label="Primary" className="hidden gap-6 text-sm lg:flex" style={{ fontSize: "1.2rem", fontWeight: "500" }}>

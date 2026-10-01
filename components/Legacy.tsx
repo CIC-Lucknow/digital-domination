@@ -81,6 +81,8 @@ export default function Legacy() {
                     onError={() => fail(i)}
                     alt={String(i)}
                     decoding="async"
+                    loading="lazy"
+                    quality="75"
                     className="h-full w-full object-cover"
                   />
                 </button>

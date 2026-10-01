@@ -17,6 +17,7 @@ import {
   Footer,
 } from "@/components/Lower";
 import Legacy from "@/components/Legacy";
+import { Team } from "@/components/Team";
 export default function Page() {
   return (
     <>
@@ -33,6 +34,7 @@ export default function Page() {
       <Audience />
       <Ctf />
       <Legacy />
+      <Team />
       <Sponsors />
       <Faq />
       <Footer />

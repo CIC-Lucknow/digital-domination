@@ -10,6 +10,6 @@ export const DD1 = {
   ],
 };
 export const SHOTS = [1, 2, 3, 4, 5, 6, 7].map((n) => ({
-  src: `/assets/dd1-${n}.png`,
+  src: `/assets/dd1-${n}.webp`,
   cap: `Moment ${n}`,
 }));

@@ -181,6 +181,7 @@ const SPONSOR_LOGOS: Record<string, { src: string; name: string }> = {
 };
 const OTHER_SPONSORS = [
   { src: A.sponsorCodevirus, name: "Codevirus" },
+  { src: A.sponsorCommudle, name: "Commudle" },
   { src: A.sponsorOsen, name: "OSEN" },
   { src: A.sponsorXyz, name: "XYZ", scale: "scale-75" },
 ];
@@ -199,7 +200,7 @@ export function Sponsors() {
   return (
     <Sec id="sponsors" bg={A.bgSponsors}>
       <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
-        <Head small n="11" e="Sponsors & supporters">
+        <Head small n="12" e="Sponsors & supporters">
           Organizations supporting the experience
         </Head>
         <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-3">
@@ -265,7 +266,7 @@ export function Faq() {
   return (
     <Sec id="faq" bg={A.bgFaq}>
       <div ref={r} className="mx-auto max-w-6xl px-5 py-14 md:py-16">
-        <Head n="12" e="FAQ">
+        <Head n="13" e="FAQ">
           Frequently asked questions
         </Head>
         <div className="mt-10 space-y-4">
@@ -328,6 +329,7 @@ export function Footer() {
     ["Schedule", "agenda"],
     ["Speakers", "speakers"],
     ["Audience", "audience"],
+    ["Team", "team"],
     ["Supporters", "sponsors"],
   ];
   const S: [typeof Globe, string, string][] = [
