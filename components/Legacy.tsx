@@ -82,7 +82,6 @@ export default function Legacy() {
                     alt={String(i)}
                     decoding="async"
                     loading="lazy"
-                    quality="75"
                     className="h-full w-full object-cover"
                   />
                 </button>
