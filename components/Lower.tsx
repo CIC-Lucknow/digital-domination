@@ -182,7 +182,7 @@ const SPONSOR_LOGOS: Record<string, { src: string; name: string }> = {
 const OTHER_SPONSORS = [
   { src: A.sponsorCodevirus, name: "Codevirus" },
   { src: A.sponsorCommudle, name: "Commudle" },
-  { src: A.sponsorOsen, name: "OSEN" },
+  // { src: A.sponsorOsen, name: "OSEN" },
   { src: A.sponsorXyz, name: "XYZ", scale: "scale-75" },
 ];
 export function Sponsors() {
