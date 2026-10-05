@@ -199,15 +199,23 @@ export function Countdown() {
 
               <Clock t={t} />
 
-              <a
-                href={i === 0 ? SITE.registerCtf : SITE.registerOffline}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn mt-6 w-full justify-center bg-red text-white"
-              >
-                Register for {i === 0 ? "Online CTF" : "Offline Meet"}{" "}
-                <ArrowRight size={16} />
-              </a>
+              {i === 0 ? (
+                <span
+                  aria-disabled="true"
+                  className="btn mt-6 w-full cursor-not-allowed justify-center bg-red text-white opacity-50"
+                >
+                  Online CTF Ended
+                </span>
+              ) : (
+                <a
+                  href={SITE.registerOffline}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn mt-6 w-full justify-center bg-red text-white"
+                >
+                  Register for Offline Meet <ArrowRight size={16} />
+                </a>
+              )}
             </div>
             </div>
           ))}
