@@ -38,6 +38,7 @@ export const A = {
   sponsorOsen: "/sponsors/OSEN.png",
   sponsorCodevirus: "/sponsors/codevirus.png",
   sponsorXyz: "/sponsors/xyz.png",
+  sponsorEdixity: "/sponsors/edixity.png",
   organiserSuryansh: "/team/suryansh.png",
   organiserZuhaib: "/team/zuhaib.png",
   organiserDhaval: "/team/dhaval.png",
