@@ -182,8 +182,8 @@ const SPONSOR_LOGOS: Record<string, { src: string; name: string }> = {
 const OTHER_SPONSORS = [
   { src: A.sponsorCodevirus, name: "Codevirus" },
   { src: A.sponsorCommudle, name: "Commudle" },
-  // { src: A.sponsorOsen, name: "OSEN" },
   { src: A.sponsorXyz, name: "XYZ", scale: "scale-75" },
+  { src: A.sponsorEdixity, name: "Edixity" },
 ];
 export function Sponsors() {
   const r = useRef<HTMLDivElement>(null);
@@ -210,12 +210,12 @@ export function Sponsors() {
               className="sp hud group flex h-52 flex-col justify-between p-4 md:h-56"
             >
               {SPONSOR_LOGOS[t] ? (
-                <div className="grid min-h-0 flex-1 place-items-center border border-black/10 bg-white/70 p-4 backdrop-blur">
+                <div className="relative min-h-0 flex-1 overflow-hidden border border-black/10 bg-white/70 backdrop-blur">
                   <img
                     src={SPONSOR_LOGOS[t].src}
                     alt={SPONSOR_LOGOS[t].name}
                     loading="lazy"
-                    className="max-h-full max-w-full object-contain"
+                    className="absolute inset-0 h-full w-full object-contain p-4"
                   />
                 </div>
               ) : (
@@ -234,12 +234,12 @@ export function Sponsors() {
               key={name}
               className="sp hud flex h-52 flex-col justify-center p-4 md:h-56"
             >
-              <div className="grid min-h-0 flex-1 place-items-center border border-black/10 bg-white/70 p-4 backdrop-blur">
+              <div className="relative min-h-0 flex-1 overflow-hidden border border-black/10 bg-white/70 backdrop-blur">
                 <img
                   src={src}
                   alt={name}
                   loading="lazy"
-                  className={`max-h-full max-w-full object-contain ${scale ?? ""}`}
+                  className={`absolute inset-0 h-full w-full object-contain p-4 ${scale ?? ""}`}
                 />
               </div>
             </div>
